@@ -4,14 +4,14 @@ const ctx = canvas.getContext('2d');
 // 绘制坐标系
 function drawCoordinateSystem() {
     // 步长
-    const dx = dy = 50;
+    const dx = dy = 20;
     // 原点坐标
     let x = 0.5;
     let y = 0.5;
     const w = canvas.width;
     const h = canvas.height;
     // 单个步长表示的宽度
-    let xy = 10;
+    let xy = 1;
     const lineColor = '#000';
 
     // 坐标位置
@@ -24,9 +24,13 @@ function drawCoordinateSystem() {
     while(y < h - dy) {
         y = y + dy;
 
+        ctx.beginPath();
+        // 绘制虚线
+        ctx.setLineDash([2]);
         ctx.moveTo(0, y);
         ctx.lineTo(w, y);
         ctx.stroke();
+        ctx.closePath();
 
         ctx.font = '12px Calibri';
         ctx.fillText(fp, 4, y + 12);
@@ -40,9 +44,12 @@ function drawCoordinateSystem() {
     while(x < w - dx) {
         x = x + dx;
 
+        ctx.beginPath();
+        ctx.setLineDash([0]);
         ctx.moveTo(x, 0);
         ctx.lineTo(x, h);
         ctx.stroke();
+        ctx.closePath();
 
         ctx.font = '12px Calibri';
         ctx.fillText(fp, x + 4, 12);
