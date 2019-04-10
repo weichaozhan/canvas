@@ -31,7 +31,7 @@ window.CanvasRenderingContext2D && (CanvasRenderingContext2D.prototype.drawDotte
             
             this.moveTo(newX, y1);
             this.arc(newX, newY, lineWidth, 0, Math.PI * 2, true);
-            this.fill()
+            this.fill();
         } else {
             const newY = y1 + progress;
 
@@ -42,4 +42,4 @@ window.CanvasRenderingContext2D && (CanvasRenderingContext2D.prototype.drawDotte
     }
 });
 
-ctx.drawDottedLine(0,10,100,20);
+ctx.drawDottedLine(50, 200, 400, 200, 20, 6);
